@@ -81,20 +81,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "crear-dog",
   data: function data() {
     return {
+      imagenMiniatura: "",
       dog: {
         raza: "",
         tamaño: "",
-        color: ""
+        color: "",
+        foto: ""
       }
     };
   },
   methods: {
-    crear: function crear() {
+    obtenerFoto: function obtenerFoto(e) {
+      var file = e.target.files[0];
+      this.dog.foto = file;
+      this.cargarFoto(file);
+    },
+    cargarFoto: function cargarFoto(file) {
       var _this = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this.imagenMiniatura = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    crear: function crear() {
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -102,8 +127,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.post('/api/dog', _this.dog).then(function (response) {
-                  _this.$router.push({
+                return _this2.axios.post('/api/dog', _this2.dog).then(function (response) {
+                  _this2.$router.push({
                     name: "mostrarDogs"
                   });
                 })["catch"](function (error) {
@@ -117,6 +142,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    }
+    /* crear(){
+        //11:20
+        let formData = new FormData();
+        formData.append('raza',this,dog.raza);
+        formData.append('tamaño',this,dog.tamaño);
+        formData.append('color',this,dog.color);
+        formData.append('foto',this,dog.foto);
+          axios.post('/dog',formData)
+        .then(response=> {
+            console.log(response.data);
+        })
+    } */
+
+  },
+  computed: {
+    foto: function foto() {
+      return this.imagenMiniatura;
     }
   }
 });
@@ -984,6 +1027,7 @@ var render = function () {
           _c(
             "form",
             {
+              attrs: { enctype: "multipart/form-data" },
               on: {
                 submit: function ($event) {
                   $event.preventDefault()
@@ -1180,6 +1224,31 @@ var render = function () {
                     _vm._v(" "),
                     _c("label", { attrs: { for: "Otros" } }, [_vm._v("Otros")]),
                   ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Foto")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control-file",
+                    attrs: { type: "file" },
+                    on: {
+                      change: function ($event) {
+                        return _vm.obtenerFoto()
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("figure", [
+                  _c("img", {
+                    attrs: {
+                      width: "200",
+                      height: "200",
+                      src: _vm.foto,
+                      alt: "Foto del Perro",
+                    },
+                  }),
                 ]),
                 _vm._v(" "),
                 _vm._m(4),

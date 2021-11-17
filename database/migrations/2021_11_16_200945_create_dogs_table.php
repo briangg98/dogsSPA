@@ -18,6 +18,7 @@ class CreateDogsTable extends Migration
             $table->string('raza');
             $table->string('tamaño');
             $table->string('color');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

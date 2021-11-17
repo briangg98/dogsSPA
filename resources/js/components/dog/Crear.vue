@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-header"><h4>Añadir Nuevo Perro</h4></div>
                 <div class="card-body">
-                    <form @submit.prevent="crear">
+                    <form @submit.prevent="crear" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-5 mb-2">
                                 <div class="form-group">
@@ -38,6 +38,13 @@
                                     <label for="Otros">Otros</label>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input type="file" class="form-control-file" @change="obtenerFoto()">
+                            </div>
+                            <figure>
+                                <img width="200" height="200" :src="foto" alt="Foto del Perro">
+                            </figure>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
@@ -54,20 +61,54 @@ export default {
     name:"crear-dog",
     data(){
         return {
+            imagenMiniatura: "",
             dog:{
                 raza:"",
                 tamaño:"",
-                color:""
+                color:"",
+                foto:""
             }
         }
     },
     methods:{
+        obtenerFoto(e){
+            let file = e.target.files[0];
+            this.dog.foto = file;
+            this.cargarFoto(file);
+        },
+        cargarFoto(file){
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.imagenMiniatura = e.target.result;
+
+            }
+            reader.readAsDataURL(file);
+
+        },
         async crear(){
             await this.axios.post('/api/dog',this.dog).then(response=>{
                 this.$router.push({name:"mostrarDogs"})
             }).catch(error=>{
                 console.log(error)
             })
+        }
+        /* crear(){
+            //11:20
+            let formData = new FormData();
+            formData.append('raza',this,dog.raza);
+            formData.append('tamaño',this,dog.tamaño);
+            formData.append('color',this,dog.color);
+            formData.append('foto',this,dog.foto);
+
+            axios.post('/dog',formData)
+            .then(response=> {
+                console.log(response.data);
+            })
+        } */
+    },
+    computed: {
+        foto(){
+            return this.imagenMiniatura;
         }
     }
 }
