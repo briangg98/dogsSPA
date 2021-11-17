@@ -79,11 +79,17 @@ var staticRenderFns = [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col text-center" }, [
           _c("h1", [
-            _vm._v("Componente "),
             _c("span", { staticClass: "badge bg-secondary" }, [
               _vm._v("CONTACTO"),
             ]),
           ]),
+          _vm._v("\n           Brian Galindo Gallego"),
+          _c("br"),
+          _vm._v("\n           brian-galindo@hotmail.com"),
+          _c("br"),
+          _vm._v(
+            "\n           https://github.com/briangg98/dogsSPA.git\n        "
+          ),
         ]),
       ]),
     ])

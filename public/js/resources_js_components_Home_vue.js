@@ -79,9 +79,32 @@ var staticRenderFns = [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col text-center" }, [
           _c("h1", [
-            _vm._v("Componente "),
             _c("span", { staticClass: "badge bg-secondary" }, [_vm._v("HOME")]),
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
+            [
+              _c("h4", { staticClass: "alert-heading" }, [
+                _vm._v("Bienvenido"),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Esta es la prueba tecnica de Europe Language Jobs, tenemos un SPA que en el apartado de Dogs nos permite administrar los perros.Añadir, Editar y Borrar."
+                ),
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("p", { staticClass: "mb-0" }, [
+                _vm._v(
+                  "Si hay alguna duda o cualquier problema, este es mi correo: brian-galindo@hotmail.com"
+                ),
+              ]),
+            ]
+          ),
         ]),
       ]),
     ])
