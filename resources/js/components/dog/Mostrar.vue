@@ -1,8 +1,8 @@
 <template>
 <div class="container">
     <div class="row">
-
         <div class="col-lg-12 mb-4">
+            <br>
             <router-link :to='{name:"crearDog"}' class="btn btn-success"><i class="fas fa-plus fa-fw"></i>Añadir Perro<i class="fas fa-paw fa-fw"></i></router-link>
         </div>
 
@@ -15,7 +15,7 @@
                             <th>Raza</th>
                             <th>Tamaño</th>
                             <th>Color</th>
-                            <!-- <th>Foto</th> -->
+                            <th>Foto</th>
                             <th>Acciones</th>
                         </tr>
 
@@ -26,7 +26,7 @@
                             <td>{{ dog.raza }}</td>
                             <td>{{ dog.tamaño }}</td>
                             <td>{{ dog.color }}</td>
-                            <!-- <td>{{  dog.foto  }}</td> -->
+                            <td>{{  dog.foto  }}</td>
                             <td>
                                 <router-link :to='{name:"editarDog", params:{id:dog.id}}' class="btn btn-info"><i class="far fa-edit"></i></router-link>
                                 <a type="button" @click="borrarDog(dog.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>

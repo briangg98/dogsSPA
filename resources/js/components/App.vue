@@ -3,7 +3,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <!-- llamamos al logo de Vue -->
                     <img src="https://www.europeanjobdays.eu/sites/default/files/styles/exhibitor_logo/public/logo_5.jpg?itok=RTaNINyy" alt="" style="border-radius: 15px;" width="120" height="64">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +11,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link exact-active-class="active" to="/" class="nav-link active" aria-current="page">Inicio</router-link>
+                        <router-link exact-active-class="active" to="/" class="nav-link" aria-current="page">Inicio</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link exact-active-class="active" to="/dogs" class="nav-link">Dogs</router-link>

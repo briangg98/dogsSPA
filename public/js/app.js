@@ -19803,7 +19803,7 @@ var render = function () {
                     _c(
                       "router-link",
                       {
-                        staticClass: "nav-link active",
+                        staticClass: "nav-link",
                         attrs: {
                           "exact-active-class": "active",
                           to: "/",

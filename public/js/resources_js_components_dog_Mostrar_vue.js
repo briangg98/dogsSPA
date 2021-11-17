@@ -981,6 +981,8 @@ var render = function () {
         "div",
         { staticClass: "col-lg-12 mb-4" },
         [
+          _c("br"),
+          _vm._v(" "),
           _c(
             "router-link",
             {
@@ -1013,6 +1015,8 @@ var render = function () {
                   _c("td", [_vm._v(_vm._s(dog.tamaño))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(dog.color))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(dog.foto))]),
                   _vm._v(" "),
                   _c(
                     "td",
@@ -1068,6 +1072,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Tamaño")]),
         _vm._v(" "),
         _c("th", [_vm._v("Color")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Foto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Acciones")]),
       ]),
